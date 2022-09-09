@@ -14,3 +14,18 @@ export const getTrendingMoviesDay = async () => {
     new Error(`Server responsed with status code: ${response.status}`)
   );
 };
+
+export const getInfoOfMovieById = async movieId => {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
+  );
+
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+    return data;
+  }
+  return Promise.reject(
+    new Error(`Server responsed with status code: ${response.status}`)
+  );
+};

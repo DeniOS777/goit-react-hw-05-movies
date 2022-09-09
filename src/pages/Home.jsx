@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getTrendingMoviesDay } from '../services/api';
@@ -14,12 +15,12 @@ const Home = () => {
 
   return (
     <main>
-      <h2>Trending today</h2>
+      <h2 style={{ marginBottom: '20px', fontSize: '28px' }}>Trending today</h2>
       {movies.length > 0 && (
         <ul>
-          {movies.map(movie => (
-            <li key={movie.id}>
-              <a href="/">{movie.title}</a>
+          {movies.map(({ id, title, original_title }) => (
+            <li key={id}>
+              <Link to={`/movies/${id}`}>{title || original_title}</Link>
             </li>
           ))}
         </ul>

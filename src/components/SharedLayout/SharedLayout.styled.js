@@ -12,11 +12,11 @@ export const Link = styled(NavLink)`
   &.active {
     font-weight: 700;
     color: #ffffff;
-    background-color: orangered;
+    background-color: #f15c27;
   }
 
   &:hover:not(.active),
   &:focus-visible:not(.active) {
-    color: orangered;
+    color: #f15c27;
   }
 `;

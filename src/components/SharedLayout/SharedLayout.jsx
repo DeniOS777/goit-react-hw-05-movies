@@ -6,7 +6,7 @@ import { Box } from '../Box';
 const SharedLayout = () => {
   return (
     <>
-      <Box as="header" borderBottom="1px solid black" mb={3} px={4} py={2}>
+      <Box as="header" borderBottom="1px solid black" mb={4} px={4} py={3}>
         <Box as="nav">
           <Box as="ul" display="flex" gridGap={4}>
             <li>
