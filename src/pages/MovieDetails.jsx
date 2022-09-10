@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getInfoOfMovieById } from 'services/api';
+import { Box } from '../components/Box';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -32,14 +33,14 @@ const MovieDetails = () => {
 
       <div>
         <p>Additional information</p>
-        <ul>
+        <Box as="ul">
           <li>
             <Link to="cast">Cast</Link>
           </li>
           <li>
             <Link to="reviews">Reviews</Link>
           </li>
-        </ul>
+        </Box>
         <Outlet />
       </div>
     </main>
