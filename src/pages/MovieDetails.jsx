@@ -21,7 +21,10 @@ const MovieDetails = () => {
   return (
     <main>
       <Link to="/">Go back</Link>
-      <img src={movie.poster_path} alt="poster" />
+      <img
+        src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+        alt="poster"
+      />
       <p style={{ marginBottom: '15px', fontSize: '20px', fontWeight: '600' }}>
         {movie.title}
       </p>

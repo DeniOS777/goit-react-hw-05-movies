@@ -42,3 +42,17 @@ export const getCreditsOfMovieById = async movieId => {
     new Error(`Server responsed with status code: ${response.status}`)
   );
 };
+
+export const getReviewsOfMovieById = async movieId => {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`
+  );
+
+  if (response.ok) {
+    const data = await response.json();
+    return data.results;
+  }
+  return Promise.reject(
+    new Error(`Server responsed with status code: ${response.status}`)
+  );
+};
