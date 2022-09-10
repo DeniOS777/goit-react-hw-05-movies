@@ -22,7 +22,6 @@ export const getInfoOfMovieById = async movieId => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log(data);
     return data;
   }
   return Promise.reject(
