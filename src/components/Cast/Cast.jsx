@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getCreditsOfMovieById } from 'services/api';
 import dummyImage from './dummyUser.jpg';
-// import {Box} from '../Box'
+import { Box } from '../Box';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -22,13 +22,18 @@ const Cast = () => {
   return (
     <div>
       {credits.length > 0 && (
-        <ul>
+        <Box
+          as="ul"
+          display="grid"
+          gridGap="15px"
+          gridTemplateColumns="repeat(auto-fill, minmax(200px ,1fr))"
+        >
           {credits.map(({ id, profile_path, original_name, character }) => (
             <li key={id}>
               <img
                 src={
                   profile_path
-                    ? `https://image.tmdb.org/t/p/w154${profile_path}`
+                    ? `https://image.tmdb.org/t/p/w300${profile_path}`
                     : dummyImage
                 }
                 alt="the actor"
@@ -37,9 +42,8 @@ const Cast = () => {
               <p>Character: {character}</p>
             </li>
           ))}
-        </ul>
+        </Box>
       )}
-      <img src={dummyImage} alt="dummy" />
     </div>
   );
 };

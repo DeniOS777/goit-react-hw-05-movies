@@ -56,3 +56,17 @@ export const getReviewsOfMovieById = async movieId => {
     new Error(`Server responsed with status code: ${response.status}`)
   );
 };
+
+export const getMoviesBySearchQuery = async searchQuery => {
+  const response = await fetch(
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchQuery}`
+  );
+
+  if (response.ok) {
+    const data = await response.json();
+    return data.results;
+  }
+  return Promise.reject(
+    new Error(`Server responsed with status code: ${response.status}`)
+  );
+};
