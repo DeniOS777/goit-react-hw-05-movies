@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <main>
-      <h2 style={{ marginBottom: '20px', fontSize: '28px' }}>Trending today</h2>
+      <h1 style={{ marginBottom: '20px', fontSize: '30px' }}>Trending today</h1>
       {movies.length > 0 && (
         <ul>
           {movies.map(({ id, title, original_title }) => (

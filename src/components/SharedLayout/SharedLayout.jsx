@@ -1,4 +1,4 @@
-import React from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Link } from './SharedLayout.styled';
 import { Box } from '../Box';
@@ -6,7 +6,13 @@ import { Box } from '../Box';
 const SharedLayout = () => {
   return (
     <>
-      <Box as="header" borderBottom="1px solid black" mb={4} px={4} py={3}>
+      <Box
+        as="header"
+        boxShadow="0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)"
+        mb={5}
+        px={4}
+        py={3}
+      >
         <Box as="nav">
           <Box as="ul" display="flex" gridGap={4}>
             <li>
@@ -18,7 +24,9 @@ const SharedLayout = () => {
           </Box>
         </Box>
       </Box>
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

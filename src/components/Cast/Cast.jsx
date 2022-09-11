@@ -26,22 +26,24 @@ const Cast = () => {
           as="ul"
           display="grid"
           gridGap="15px"
-          gridTemplateColumns="repeat(auto-fill, minmax(200px ,1fr))"
+          gridTemplateColumns="repeat(auto-fill, minmax(150px ,1fr))"
         >
-          {credits.map(({ id, profile_path, original_name, character }) => (
-            <li key={id}>
-              <img
-                src={
-                  profile_path
-                    ? `https://image.tmdb.org/t/p/w300${profile_path}`
-                    : dummyImage
-                }
-                alt="the actor"
-              />
-              <p>{original_name}</p>
-              <p>Character: {character}</p>
-            </li>
-          ))}
+          {credits.map(
+            ({ credit_id, profile_path, original_name, character }) => (
+              <li key={credit_id}>
+                <img
+                  src={
+                    profile_path
+                      ? `https://image.tmdb.org/t/p/w185${profile_path}`
+                      : dummyImage
+                  }
+                  alt="the actor"
+                />
+                <p>{original_name}</p>
+                <p>Character: {character}</p>
+              </li>
+            )
+          )}
         </Box>
       )}
     </div>

@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useState, useEffect, Suspense } from 'react';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getInfoOfMovieById } from 'services/api';
 import { Box } from '../components/Box';
 
 const MovieDetails = () => {
+  const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
 
@@ -18,18 +19,24 @@ const MovieDetails = () => {
 
   console.log(movie);
 
+  const backLinkHref = location.state?.from ?? '/';
+
+  const userScorePersentage = Number(
+    ((movie.vote_average / 10) * 100).toFixed()
+  );
+
   return (
     <main>
-      <Link to="/">Go back</Link>
+      <Link to={backLinkHref}>Go back</Link>
       <img
         src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
         alt="poster"
       />
       <p style={{ marginBottom: '15px', fontSize: '20px', fontWeight: '600' }}>
-        {movie.title}
+        {`${movie.title} (${movie.release_date})`}
       </p>
       <p style={{ marginBottom: '15px' }}>
-        User score: {((movie.vote_average / 10) * 100).toFixed()}%
+        User score: {userScorePersentage || '🤷‍♂️'}%
       </p>
       <p style={{ marginBottom: '15px' }}>Overview: {movie.overview}</p>
       <p style={{ marginBottom: '15px' }}>Genres: {movie.genres[0].name}</p>
@@ -38,13 +45,19 @@ const MovieDetails = () => {
         <p>Additional information</p>
         <Box as="ul">
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: location.state?.from ?? '/' }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from: location.state?.from ?? '/' }}>
+              Reviews
+            </Link>
           </li>
         </Box>
-        <Outlet />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </div>
     </main>
   );

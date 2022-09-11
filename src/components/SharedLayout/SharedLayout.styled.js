@@ -10,7 +10,7 @@ export const Link = styled(NavLink)`
   border-radius: 4px;
 
   &.active {
-    font-weight: 700;
+    font-weight: 800;
     color: #ffffff;
     background-color: #f15c27;
   }
