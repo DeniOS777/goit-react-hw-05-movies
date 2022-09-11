@@ -5,9 +5,13 @@ import { getInfoOfMovieById } from 'services/api';
 import { Box } from '../../components/Box';
 import {
   StyledLink,
-  MovieTitle,
+  Title,
   UserRate,
   Overview,
+  Genres,
+  ImageWrap,
+  DescriptionMovie,
+  CardMovie,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -35,15 +39,27 @@ const MovieDetails = () => {
     <main>
       <Box px={4}>
         <StyledLink to={backLinkHref}>Go back</StyledLink>
-        <img
-          src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-          alt="poster"
-        />
-        <MovieTitle>{`${movie.title} (${movie.release_date})`}</MovieTitle>
-        <UserRate>User score: {userScorePersentage || '🤷‍♂️'}%</UserRate>
-        <Overview>Overview: {movie.overview}</Overview>
-        <p style={{ marginBottom: '15px' }}>Genres: {movie.genres[0].name}</p>
 
+        <CardMovie>
+          <ImageWrap>
+            <img
+              src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+              alt="poster"
+            />
+          </ImageWrap>
+          <DescriptionMovie>
+            <Title>{`${movie.title} (${movie.release_date})`}</Title>
+            <UserRate>
+              <b>User score:</b> {userScorePersentage || '🤷‍♂️'}%
+            </UserRate>
+            <Overview>
+              <b>Overview:</b> {movie.overview}
+            </Overview>
+            <Genres>
+              <b>Genres:</b> {movie.genres[0].name}
+            </Genres>
+          </DescriptionMovie>
+        </CardMovie>
         <div>
           <p>Additional information</p>
           <Box as="ul">

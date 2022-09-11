@@ -24,16 +24,44 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const MovieTitle = styled.h2`
-  margin-bottom: 15px;
-  font-size: 20px;
+export const Title = styled.h2`
+  margin-bottom: 35px;
+  font-size: 28px;
   font-weight: 600;
 `;
 
 export const UserRate = styled.p`
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 `;
 
 export const Overview = styled.p`
+  margin-bottom: 25px;
+
+  & b {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+`;
+
+export const Genres = styled.p`
   margin-bottom: 15px;
+
+  & b {
+    display: block;
+    margin-bottom: 15px;
+  }
+`;
+
+export const ImageWrap = styled.div`
+  border-radius: 6px;
+  overflow: hidden;
+`;
+
+export const DescriptionMovie = styled.div``;
+
+export const CardMovie = styled.div`
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-gap: 20px;
 `;
