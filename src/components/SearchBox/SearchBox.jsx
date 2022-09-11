@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import { Form, Input, SearchButton } from './SearchBox.styled';
 
 const SearchBox = ({ onSubmit }) => {
   const handleSubmit = e => {
@@ -7,17 +9,17 @@ const SearchBox = ({ onSubmit }) => {
 
     if (form.elements.search.value.trim() === '') {
       onSubmit(form.elements.search.value);
-      return console.log('Search field is empty');
+      return toast.info('Search field is empty');
     }
     onSubmit(form.elements.search.value);
     form.reset();
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <input type="text" name="search" />
-      <button type="submit">Search</button>
-    </form>
+    <Form autoComplete="off" onSubmit={handleSubmit}>
+      <Input type="text" name="search" placeholder="Enter name film..." />
+      <SearchButton type="submit">Search</SearchButton>
+    </Form>
   );
 };
 

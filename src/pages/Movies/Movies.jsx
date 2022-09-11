@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getMoviesBySearchQuery } from 'services/api';
 import SearchBox from '../../components/SearchBox';
