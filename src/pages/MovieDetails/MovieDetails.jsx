@@ -3,6 +3,12 @@ import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getInfoOfMovieById } from 'services/api';
 import { Box } from '../../components/Box';
+import {
+  StyledLink,
+  MovieTitle,
+  UserRate,
+  Overview,
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -28,20 +34,14 @@ const MovieDetails = () => {
   return (
     <main>
       <Box px={4}>
-        <Link to={backLinkHref}>Go back</Link>
+        <StyledLink to={backLinkHref}>Go back</StyledLink>
         <img
           src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
           alt="poster"
         />
-        <p
-          style={{ marginBottom: '15px', fontSize: '20px', fontWeight: '600' }}
-        >
-          {`${movie.title} (${movie.release_date})`}
-        </p>
-        <p style={{ marginBottom: '15px' }}>
-          User score: {userScorePersentage || '🤷‍♂️'}%
-        </p>
-        <p style={{ marginBottom: '15px' }}>Overview: {movie.overview}</p>
+        <MovieTitle>{`${movie.title} (${movie.release_date})`}</MovieTitle>
+        <UserRate>User score: {userScorePersentage || '🤷‍♂️'}%</UserRate>
+        <Overview>Overview: {movie.overview}</Overview>
         <p style={{ marginBottom: '15px' }}>Genres: {movie.genres[0].name}</p>
 
         <div>
