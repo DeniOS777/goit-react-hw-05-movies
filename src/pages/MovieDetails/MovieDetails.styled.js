@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+export const Container = styled.div`
+  padding-left: 16px;
+  padding-right: 16px;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+`;
+
 export const StyledLink = styled(Link)`
   display: inline-flex;
   margin-bottom: 8px;
@@ -52,28 +61,34 @@ export const Title = styled.h2`
   font-weight: 600;
 `;
 
-export const UserRate = styled.p`
+export const TitleUserRate = styled.p`
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   margin-bottom: 25px;
 `;
 
-export const Overview = styled.p`
-  margin-bottom: 25px;
-
-  & b {
-    display: block;
-    margin-bottom: 15px;
-    font-size: 20px;
-  }
-`;
-
-export const Genres = styled.p`
+export const TitleOverview = styled.h3`
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   margin-bottom: 15px;
+`;
 
-  & b {
-    display: block;
-    margin-bottom: 15px;
-    font-size: 18px;
-  }
+export const TextOverview = styled.p`
+  margin-bottom: 15px;
+`;
+
+export const TitleGenres = styled.h3`
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+
+  margin-bottom: 15px;
+`;
+
+export const TextGenres = styled.p`
+  letter-spacing: 0.02em;
 `;
 
 export const ImageWrap = styled.div`

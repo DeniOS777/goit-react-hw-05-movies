@@ -5,12 +5,15 @@ import { getInfoOfMovieById } from 'services/api';
 import { Box } from '../../components/Box';
 import {
   StyledLink,
+  Container,
   MyLink,
   Item,
   Title,
-  UserRate,
-  Overview,
-  Genres,
+  TitleUserRate,
+  TitleOverview,
+  TextOverview,
+  TitleGenres,
+  TextGenres,
   ImageWrap,
   DescriptionMovie,
   CardMovie,
@@ -42,27 +45,25 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <Box px={4}>
+      <Container>
         <StyledLink to={backLinkHref}>Go back</StyledLink>
 
         <CardMovie>
           <ImageWrap>
             <img
               src={`https://image.tmdb.org/t/p/w342${poster_path}`}
-              alt="poster"
+              alt={title}
             />
           </ImageWrap>
           <DescriptionMovie>
             <Title>{`${title} (${releaseDate})`}</Title>
-            <UserRate>
-              <b>User score:</b> {userScorePersentage || '🤷‍♂️'}%
-            </UserRate>
-            <Overview>
-              <b>Overview:</b> {overview}
-            </Overview>
-            <Genres>
-              <b>Genres:</b> {parseGenres}
-            </Genres>
+            <TitleUserRate>
+              User Score: {userScorePersentage || '🤷‍♂️'}%
+            </TitleUserRate>
+            <TitleOverview>Overview:</TitleOverview>
+            <TextOverview>{overview}</TextOverview>
+            <TitleGenres>Genres: </TitleGenres>
+            <TextGenres>{parseGenres}</TextGenres>
           </DescriptionMovie>
         </CardMovie>
 
@@ -87,7 +88,7 @@ const MovieDetails = () => {
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
-      </Box>
+      </Container>
     </main>
   );
 };

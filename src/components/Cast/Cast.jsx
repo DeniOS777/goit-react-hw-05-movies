@@ -4,6 +4,13 @@ import { toast } from 'react-toastify';
 import { getCreditsOfMovieById } from 'services/api';
 import dummyImage from './dummyUser.jpg';
 import { Box } from '../Box';
+import {
+  CardActor,
+  ActorName,
+  ActorRole,
+  WrappInfo,
+  WrappImage,
+} from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -20,7 +27,7 @@ const Cast = () => {
   console.log(credits);
 
   return (
-    <div>
+    <section>
       {credits.length > 0 && (
         <Box
           as="ul"
@@ -28,25 +35,27 @@ const Cast = () => {
           gridGap="15px"
           gridTemplateColumns="repeat(auto-fill, minmax(150px ,1fr))"
         >
-          {credits.map(
-            ({ credit_id, profile_path, original_name, character }) => (
-              <li key={credit_id}>
+          {credits.map(({ credit_id, profile_path, name, character }) => (
+            <CardActor key={credit_id}>
+              <WrappImage>
                 <img
                   src={
                     profile_path
                       ? `https://image.tmdb.org/t/p/w185${profile_path}`
                       : dummyImage
                   }
-                  alt="the actor"
+                  alt={name}
                 />
-                <p>{original_name}</p>
-                <p>Character: {character}</p>
-              </li>
-            )
-          )}
+              </WrappImage>
+              <WrappInfo>
+                <ActorName>{name}</ActorName>
+                <ActorRole>Character: {character}</ActorRole>
+              </WrappInfo>
+            </CardActor>
+          ))}
         </Box>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getReviewsOfMovieById } from 'services/api';
+import { AuthorName, TextReview, ReviewItem } from './Reviews.styled';
+import { Box } from '../Box';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -20,14 +22,14 @@ const Reviews = () => {
   return (
     <div>
       {reviews.length > 0 ? (
-        <ul>
-          {reviews.map(item => (
-            <li key={item.id}>
-              <p>Author: {item.author}</p>
-              <p>{item.content}</p>
-            </li>
+        <Box as="ul" pl={4}>
+          {reviews.map(({ id, author, content }) => (
+            <ReviewItem key={id}>
+              <AuthorName>Author: {author}</AuthorName>
+              <TextReview>{content}</TextReview>
+            </ReviewItem>
           ))}
-        </ul>
+        </Box>
       ) : (
         <p>We don't have any reviews for this movie.</p>
       )}
