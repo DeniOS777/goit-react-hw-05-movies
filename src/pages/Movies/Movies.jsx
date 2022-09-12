@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { getMoviesBySearchQuery } from 'services/api';
 import SearchBox from '../../components/SearchBox';
 import { Box } from '../../components/Box';
-import { StyledLink, MovieItem } from './Movies.styled';
+import { Container, StyledLink, MovieItem } from './Movies.styled';
 
 const Movies = () => {
   const location = useLocation();
@@ -28,7 +28,7 @@ const Movies = () => {
 
   return (
     <main>
-      <Box px={4}>
+      <Container>
         <SearchBox onSubmit={updateSearchQuery} />
 
         {movies.length > 0 && (
@@ -42,7 +42,7 @@ const Movies = () => {
             ))}
           </Box>
         )}
-      </Box>
+      </Container>
     </main>
   );
 };
