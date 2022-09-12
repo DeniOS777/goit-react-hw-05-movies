@@ -24,6 +24,28 @@ export const StyledLink = styled(Link)`
   }
 `;
 
+export const MyLink = styled(Link)`
+  text-decoration: underline;
+  color: #1f36ee;
+
+  &:visited {
+    color: #6927a8;
+  }
+
+  &:hover:not(.active),
+  &:focus-visible:not(.active) {
+    color: #f15c27;
+  }
+`;
+
+export const Item = styled.li`
+  font-weight: 500;
+
+  &:not(:last-child) {
+    margin-bottom: 3px;
+  }
+`;
+
 export const Title = styled.h2`
   margin-bottom: 35px;
   font-size: 28px;
@@ -50,6 +72,7 @@ export const Genres = styled.p`
   & b {
     display: block;
     margin-bottom: 15px;
+    font-size: 18px;
   }
 `;
 
@@ -58,10 +81,26 @@ export const ImageWrap = styled.div`
   overflow: hidden;
 `;
 
-export const DescriptionMovie = styled.div``;
+export const DescriptionMovie = styled.div`
+  padding-top: 20px;
+  padding-bottom: 20px;
+`;
 
 export const CardMovie = styled.div`
   display: grid;
   grid-template-columns: 320px 1fr;
   grid-gap: 20px;
+  margin-bottom: 20px;
+`;
+
+export const Text = styled.p`
+  margin-bottom: 15px;
+`;
+
+export const WrappInfo = styled.div`
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
 `;

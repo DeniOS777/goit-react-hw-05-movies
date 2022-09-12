@@ -19,7 +19,7 @@ const Home = () => {
       <Box px={4}>
         <HomeTitle>Trending today</HomeTitle>
         {movies.length > 0 && (
-          <ul>
+          <Box as="ul" pl={3}>
             {movies.map(({ id, title, original_title }) => (
               <MovieItem key={id}>
                 <StyledLink to={`/movies/${id}`}>
@@ -27,7 +27,7 @@ const Home = () => {
                 </StyledLink>
               </MovieItem>
             ))}
-          </ul>
+          </Box>
         )}
       </Box>
     </main>

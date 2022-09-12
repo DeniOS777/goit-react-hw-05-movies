@@ -1,10 +1,12 @@
 import { useState, useEffect, Suspense } from 'react';
-import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getInfoOfMovieById } from 'services/api';
 import { Box } from '../../components/Box';
 import {
   StyledLink,
+  MyLink,
+  Item,
   Title,
   UserRate,
   Overview,
@@ -12,6 +14,8 @@ import {
   ImageWrap,
   DescriptionMovie,
   CardMovie,
+  Text,
+  WrappInfo,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -28,12 +32,13 @@ const MovieDetails = () => {
   if (!movie) return;
 
   console.log(movie);
+  const { vote_average, poster_path, title, release_date, overview, genres } =
+    movie;
 
   const backLinkHref = location.state?.from ?? '/';
-
-  const userScorePersentage = Number(
-    ((movie.vote_average / 10) * 100).toFixed()
-  );
+  const userScorePersentage = Number(((vote_average / 10) * 100).toFixed());
+  const releaseDate = release_date.slice(0, 4);
+  const parseGenres = genres.map(genre => genre.name).join(', ');
 
   return (
     <main>
@@ -43,41 +48,45 @@ const MovieDetails = () => {
         <CardMovie>
           <ImageWrap>
             <img
-              src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w342${poster_path}`}
               alt="poster"
             />
           </ImageWrap>
           <DescriptionMovie>
-            <Title>{`${movie.title} (${movie.release_date})`}</Title>
+            <Title>{`${title} (${releaseDate})`}</Title>
             <UserRate>
               <b>User score:</b> {userScorePersentage || '🤷‍♂️'}%
             </UserRate>
             <Overview>
-              <b>Overview:</b> {movie.overview}
+              <b>Overview:</b> {overview}
             </Overview>
             <Genres>
-              <b>Genres:</b> {movie.genres[0].name}
+              <b>Genres:</b> {parseGenres}
             </Genres>
           </DescriptionMovie>
         </CardMovie>
-        <div>
-          <p>Additional information</p>
-          <Box as="ul">
-            <li>
-              <Link to="cast" state={{ from: location.state?.from ?? '/' }}>
+
+        <WrappInfo>
+          <Text>Additional information</Text>
+          <Box as="ul" pl={4}>
+            <Item>
+              <MyLink to="cast" state={{ from: location.state?.from ?? '/' }}>
                 Cast
-              </Link>
-            </li>
-            <li>
-              <Link to="reviews" state={{ from: location.state?.from ?? '/' }}>
+              </MyLink>
+            </Item>
+            <Item>
+              <MyLink
+                to="reviews"
+                state={{ from: location.state?.from ?? '/' }}
+              >
                 Reviews
-              </Link>
-            </li>
+              </MyLink>
+            </Item>
           </Box>
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
-        </div>
+        </WrappInfo>
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </Box>
     </main>
   );
