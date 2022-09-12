@@ -3,6 +3,7 @@ import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getInfoOfMovieById } from 'services/api';
 import { Box } from '../../components/Box';
+import Loader from '../../components/Loader';
 import {
   StyledLink,
   Container,
@@ -85,7 +86,7 @@ const MovieDetails = () => {
             </Item>
           </Box>
         </WrappInfo>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Container>

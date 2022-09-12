@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/goit-react-hw-05-movies/">
       <GlobalStyle />
-      <ToastContainer />
+      <ToastContainer autoClose={2500} />
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>

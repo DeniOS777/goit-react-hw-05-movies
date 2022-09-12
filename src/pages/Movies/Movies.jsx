@@ -11,6 +11,7 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const queryParam = searchParams.get('query') ?? '';
+  console.log(queryParam);
 
   const updateSearchQuery = query => {
     setSearchParams(query !== '' ? { query } : {});
@@ -20,7 +21,15 @@ const Movies = () => {
     if (!queryParam) return setMovies([]);
 
     getMoviesBySearchQuery(queryParam)
-      .then(movies => setMovies(movies))
+      .then(movies => {
+        if (movies.length === 0) {
+          setMovies([]);
+          return toast.warning(
+            'This movie was not found, please try to enter another of keyword '
+          );
+        }
+        setMovies(movies);
+      })
       .catch(error => toast.error(error.message));
   }, [queryParam]);
 

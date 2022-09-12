@@ -27,7 +27,7 @@ const Cast = () => {
   console.log(credits);
 
   return (
-    <section>
+    <Box as="section" pb={4}>
       {credits.length > 0 && (
         <Box
           as="ul"
@@ -55,7 +55,7 @@ const Cast = () => {
           ))}
         </Box>
       )}
-    </section>
+    </Box>
   );
 };
 

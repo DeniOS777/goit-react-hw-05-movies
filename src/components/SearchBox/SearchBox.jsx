@@ -1,5 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Form, Input, SearchButton } from './SearchBox.styled';
 
 const SearchBox = ({ onSubmit }) => {

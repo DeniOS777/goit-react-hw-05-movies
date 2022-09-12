@@ -20,7 +20,7 @@ const Reviews = () => {
   console.log(reviews);
 
   return (
-    <div>
+    <Box pb={4}>
       {reviews.length > 0 ? (
         <Box as="ul" pl={4}>
           {reviews.map(({ id, author, content }) => (
@@ -33,7 +33,7 @@ const Reviews = () => {
       ) : (
         <p>We don't have any reviews for this movie.</p>
       )}
-    </div>
+    </Box>
   );
 };
 
