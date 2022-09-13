@@ -2,6 +2,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getInfoOfMovieById } from 'services/api';
+import dummyPoster from './dummyPoster.jpg';
 import { Box } from '../../components/Box';
 import Loader from '../../components/Loader';
 import {
@@ -52,7 +53,11 @@ const MovieDetails = () => {
         <CardMovie>
           <ImageWrap>
             <img
-              src={`https://image.tmdb.org/t/p/w342${poster_path}`}
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w342${poster_path}`
+                  : dummyPoster
+              }
               alt={title}
             />
           </ImageWrap>
