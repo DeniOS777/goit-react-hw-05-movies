@@ -22,7 +22,7 @@ const Reviews = () => {
   return (
     <Box pb={4}>
       {reviews.length > 0 ? (
-        <Box as="ul" pl={4}>
+        <Box as="ul">
           {reviews.map(({ id, author, content }) => (
             <ReviewItem key={id}>
               <AuthorName>Author: {author}</AuthorName>

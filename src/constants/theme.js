@@ -42,6 +42,7 @@ export const theme = {
     none: 'none',
     normal: '1px solid',
     middle: '2px solid',
+    large: '4px solid',
   },
 
   radii: {

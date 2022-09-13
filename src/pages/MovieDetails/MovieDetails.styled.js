@@ -98,8 +98,9 @@ export const ImageWrap = styled.div`
 `;
 
 export const DescriptionMovie = styled.div`
-  padding-top: ${p => p.theme.space[4]}px;
-  padding-bottom: ${p => p.theme.space[4]}px;
+  padding: ${p => p.theme.space[4]}px;
+  border: ${p => p.theme.borders.middle} ${p => p.theme.colors.grey};
+  border-radius: ${p => p.theme.radii.md};
 `;
 
 export const CardMovie = styled.div`
@@ -115,8 +116,11 @@ export const Text = styled.p`
 
 export const WrappInfo = styled.div`
   margin-bottom: ${p => p.theme.space[4]}px;
-  padding-top: ${p => p.theme.space[4]}px;
-  padding-bottom: ${p => p.theme.space[4]}px;
-  border-top: ${p => p.theme.borders.middle} ${p => p.theme.colors.grey};
-  border-bottom: ${p => p.theme.borders.middle} ${p => p.theme.colors.grey};
+  padding: ${p => p.theme.space[4]}px;
+  /* padding-bottom: ${p => p.theme.space[4]}px; */
+  border: ${p => p.theme.borders.middle} ${p => p.theme.colors.grey};
+  border-radius: ${p => p.theme.radii.md};
+
+  /* border-bottom: ${p => p.theme.borders.middle} ${p =>
+    p.theme.colors.grey}; */
 `;
