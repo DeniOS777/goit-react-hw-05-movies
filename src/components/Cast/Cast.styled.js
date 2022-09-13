@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CardActor = styled.li`
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  border-radius: ${p => p.theme.radii.sm};
   overflow: hidden;
 
   & img {
@@ -16,17 +16,17 @@ export const CardActor = styled.li`
 `;
 
 export const ActorName = styled.p`
-  margin-bottom: 4px;
-  font-size: 14px;
-  font-weight: 700;
+  margin-bottom: ${p => p.theme.space[2]}px;
+  font-size: ${p => p.theme.fontSizes.s};
+  font-weight: ${p => p.theme.fontWeights.bold};
 `;
 
 export const ActorRole = styled.p`
-  font-size: 14px;
+  font-size: ${p => p.theme.fontSizes.s};
 `;
 
 export const WrappInfo = styled.div`
-  padding: 4px;
+  padding: ${p => p.theme.space[2]}px;
   text-align: center;
 `;
 

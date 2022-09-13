@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: ${p => p.theme.space[4]}px;
+  padding-right: ${p => p.theme.space[4]}px;
 
   *:last-child {
     margin-bottom: 0;
@@ -12,22 +12,22 @@ export const Container = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: underline;
-  color: #1f36ee;
+  color: ${p => p.theme.colors.blue};
 
   &:visited {
-    color: #6927a8;
+    color: ${p => p.theme.colors.violet};
   }
 
   &:hover:not(.active),
   &:focus-visible:not(.active) {
-    color: #f15c27;
+    color: ${p => p.theme.colors.orange};
   }
 `;
 
 export const MovieItem = styled.li`
-  font-weight: 500;
+  font-weight: ${p => p.theme.fontWeights.middle};
 
   &:not(:last-child) {
-    margin-bottom: 3px;
+    margin-bottom: ${p => p.theme.space[2]}px;
   }
 `;

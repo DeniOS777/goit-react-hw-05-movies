@@ -1,13 +1,13 @@
 export const theme = {
   colors: {
-    whiteColor: '#ffffff',
-    greenColor: '#089408',
-    greenColorHover: '#078207',
-    neutralColor: '#969696',
-    neutralColorHover: '#868585',
-    redColor: '#d42e2e',
-    redColorHover: '#c12a2a',
-    titleColor: '#009700',
+    white: '#ffffff',
+    black: '#000000',
+    blue: '#1f36ee',
+    violet: '#6927a8',
+    grey: '#cccccc',
+    greyHover: '#868585',
+    orange: '#f15c27',
+    lightBlue: '#4ba2ff',
   },
 
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
@@ -30,6 +30,7 @@ export const theme = {
     normal: 400,
     middle: 600,
     bold: 700,
+    extraBold: 900,
   },
 
   lineHeights: {
@@ -40,6 +41,7 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    middle: '2px solid',
   },
 
   radii: {

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const ReviewItem = styled.li`
   &:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: ${p => p.theme.space[4]}px;
   }
 `;
 export const AuthorName = styled.p`
-  margin-bottom: 10px;
-  font-weight: 600;
+  margin-bottom: ${p => p.theme.space[3]}px;
+  font-weight: ${p => p.theme.fontWeights.middle};
   letter-spacing: 0.02em;
 `;
 

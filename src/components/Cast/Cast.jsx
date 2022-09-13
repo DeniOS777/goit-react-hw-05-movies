@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getCreditsOfMovieById } from 'services/api';
-import dummyImage from './dummyUser.jpg';
+import dummyImage from './dummyProfile.jpg';
 import { Box } from '../Box';
 import {
   CardActor,
