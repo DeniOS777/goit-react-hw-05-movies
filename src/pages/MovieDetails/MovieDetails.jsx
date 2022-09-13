@@ -1,6 +1,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { BiArrowBack } from 'react-icons/bi';
 import { getInfoOfMovieById } from 'services/api';
 import dummyPoster from './dummyPoster.jpg';
 import { Box } from '../../components/Box';
@@ -48,7 +49,10 @@ const MovieDetails = () => {
   return (
     <main>
       <Container>
-        <StyledLink to={backLinkHref}>Go back</StyledLink>
+        <StyledLink to={backLinkHref}>
+          <BiArrowBack />
+          Go back
+        </StyledLink>
 
         <CardMovie>
           <ImageWrap>

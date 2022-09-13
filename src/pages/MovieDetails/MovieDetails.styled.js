@@ -12,20 +12,25 @@ export const Container = styled.div`
 
 export const StyledLink = styled(Link)`
   display: inline-flex;
+  grid-gap: 5px;
+  align-items: center;
   margin-bottom: ${p => p.theme.space[3]}px;
-  padding-left: ${p => p.theme.space[4]}px;
-  padding-right: ${p => p.theme.space[4]}px;
+  padding-left: ${p => p.theme.space[3]}px;
+  padding-right: ${p => p.theme.space[3]}px;
   padding-top: ${p => p.theme.space[1]}px;
   padding-bottom: ${p => p.theme.space[1]}px;
   font-weight: ${p => p.theme.fontWeights.middle};
   color: ${p => p.theme.colors.orange};
   border: ${p => p.theme.borders.normal} ${p => p.theme.colors.orange};
-  border-top-right-radius: ${p => p.theme.space[2]}px;
-  border-bottom-right-radius: ${p => p.theme.space[2]}px;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-radius: ${p => p.theme.space[2]}px;
   text-decoration: none;
   transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+
+  & svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
 
   &:hover {
     color: ${p => p.theme.colors.white};
