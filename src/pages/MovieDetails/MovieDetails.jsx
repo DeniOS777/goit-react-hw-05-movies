@@ -37,7 +37,6 @@ const MovieDetails = () => {
 
   if (!movie) return;
 
-  console.log(movie);
   const { vote_average, poster_path, title, release_date, overview, genres } =
     movie;
 
@@ -95,6 +94,7 @@ const MovieDetails = () => {
             </Item>
           </Box>
         </WrappInfo>
+
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

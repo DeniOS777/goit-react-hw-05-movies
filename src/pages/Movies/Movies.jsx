@@ -11,7 +11,6 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const queryParam = searchParams.get('query') ?? '';
-  console.log(queryParam);
 
   const updateSearchQuery = query => {
     setSearchParams(query !== '' ? { query } : {});
@@ -33,10 +32,8 @@ const Movies = () => {
       .catch(error => toast.error(error.message));
   }, [queryParam]);
 
-  console.log(movies);
-
   return (
-    <main>
+    <Box as="main">
       <Container>
         <SearchBox onSubmit={updateSearchQuery} />
 
@@ -52,7 +49,7 @@ const Movies = () => {
           </Box>
         )}
       </Container>
-    </main>
+    </Box>
   );
 };
 

@@ -17,8 +17,6 @@ const Reviews = () => {
 
   if (!reviews) return;
 
-  console.log(reviews);
-
   return (
     <Box pb={4}>
       {reviews.length > 0 ? (

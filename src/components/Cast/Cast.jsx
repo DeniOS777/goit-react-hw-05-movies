@@ -24,8 +24,6 @@ const Cast = () => {
 
   if (!credits) return;
 
-  console.log(credits);
-
   return (
     <Box as="section" pb={4}>
       {credits.length > 0 && (
@@ -47,6 +45,7 @@ const Cast = () => {
                   alt={name}
                 />
               </WrappImage>
+
               <WrappInfo>
                 <ActorName>{name}</ActorName>
                 <ActorRole>Character: {character}</ActorRole>
